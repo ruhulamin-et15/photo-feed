@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const PhotoDetails = async ({ id, lang }) => {
   const dictionary = await getDictionary(lang);
-  const response = await fetch(`http://localhost:3000/api/photos/${id}`);
+  const response = await fetch(`${process.env.BASE_API_URL}/photos/${id}`);
   const photo = await response.json();
   return (
     <div className="grid grid-cols-12 gap-4 2xl:gap-10 ">
