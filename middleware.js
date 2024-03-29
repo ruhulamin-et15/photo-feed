@@ -23,7 +23,7 @@ export function middleware(request) {
     const locale = getLocale(request);
 
     return NextResponse.redirect(
-      new URL(`/${locale}/${pathname}`, request.url)
+      new URL(`/${locale}/${pathname}`, request.url) // request.url = domain pathname
     );
   }
 }
@@ -31,7 +31,8 @@ export function middleware(request) {
 export const config = {
   matcher: [
     // Skip all internal paths (_next, assets, api)
-    "/((?!api|assets|.*\\..*|_next).*)",
+    // "/((?!api|assets|.*\\..*|_next).*)",
+    "/((?!_next).*)",
     // Optional: only run on root (/) URL
     // '/'
   ],
